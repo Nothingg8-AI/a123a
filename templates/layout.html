@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <title>{% block title %}3A3{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav>
+    <a href="{{ url_for('home') }}">Trang chủ</a>
+    {% if session.get('user') %}
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('forum') }}">Forum</a>
+      <a href="{{ url_for('profile') }}">Profile</a>
+      <a href="{{ url_for('logout') }}">Đăng xuất</a>
+    {% else %}
+      <a href="{{ url_for('login') }}">Đăng nhập</a>
+      <a href="{{ url_for('register') }}">Đăng ký</a>
+    {% endif %}
+  </nav>
+  <div class="content">{% block content %}{% endblock %}</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}Forum{% endblock %}
+{% block content %}
+<h2>Diễn đàn</h2>
+{% if user %}
+<form method="POST">
+    Tiêu đề: <input type="text" name="title">
+    Nội dung: <textarea name="content"></textarea>
+    <input type="submit" value="Đăng bài">
+</form>
+{% endif %}
+<hr>
+{% for post in posts %}
+<div>
+  <h3><a href="{{ url_for('post_detail', post_id=post.id) }}">{{ post.title }}</a></h3>
+  <p>Tác giả: {{ post.author }}</p>
+  <p>{{ post.content }}</p>
+</div>
+<hr>
+{% endfor %}
+{% endblock %}

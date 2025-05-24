@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block title %}Đăng ký{% endblock %}
+{% block content %}
+<h2>Đăng ký</h2>
+<form method="POST">
+    Tên người dùng: <input type="text" name="username">
+    Mật khẩu: <input type="password" name="password">
+    <input type="submit" value="Đăng ký">
+</form>
+{% endblock %}

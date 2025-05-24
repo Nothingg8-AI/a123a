@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}Chi tiết bài viết{% endblock %}
+{% block content %}
+<h2>{{ post.title }}</h2>
+<p><strong>Tác giả:</strong> {{ post.author }}</p>
+<p>{{ post.content }}</p>
+
+<h3>Bình luận:</h3>
+<ul>
+  {% for comment in post.comments %}
+    <li><strong>{{ comment.author }}:</strong> {{ comment.content }}</li>
+  {% endfor %}
+</ul>
+
+{% if user %}
+<form method="POST">
+    <textarea name="comment" placeholder="Viết bình luận..."></textarea>
+    <input type="submit" value="Gửi">
+</form>
+{% endif %}
+{% endblock %}
